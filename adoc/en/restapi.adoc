@@ -35,4 +35,6 @@ include::features.adoc[]
 
 include::usage_example.adoc[]
 
+include::security.adoc[]
+
 include::app_properties.adoc[]
