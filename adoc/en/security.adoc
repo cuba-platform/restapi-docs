@@ -12,5 +12,6 @@ Here are some rules you should follow when the REST API is turned on:
 * Always configure and assign constraints for non-common entities to the REST API users.
 * Use secure implementation of (obtained via `DataManager::secure()`) in middleware services exposed to the REST API. Remember that EntityManager does not impose security restrictions.
 * Remember that entity attributes are not restricted by default even in case of DENYING Role. Setup permissions for each entity attribute individually.
+* Specify custom <<cuba.rest.client.secret,client secret>> on production.
 
 If you have troubles configuring fine-grained security for your project consider using custom endpoints instead of REST API.
