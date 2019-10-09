@@ -3,15 +3,15 @@
 [[security]]
 == Security Implications When Using REST API
 
-Generic REST API provides powerful means to deal with arbitrary data from domain model without manual endpoints creation. However, if you enable the REST API in your application, you must configure security (Roles/Access Groups) and always keep it in actual state on a production system in order to prevent access to some sensitive data.
+Universal REST API provides powerful means to deal with arbitrary data from domain model without creation of custom REST endpoints. However, if you enable the REST API in your application, you must configure {manual}/security_subsystem.html[security] (Roles/Access Groups) and always keep it in actual state on a production system in order to prevent access to some sensitive data.
 
 Here are some rules you should follow when the REST API is turned on:
 
-* Always disable access to the REST API for roles/users which are not supposed to use it.
-* Use deny-by-default strategy: always assign DENYING role to users which have access to the REST API. Project model changes over time - it’s easy to miss adding granular restrictions.
-* Always configure and assign constraints (by access groups) for non-common entities to the REST API users.
-* Consider using secure implementation of data manager (obtained via `DataManager::secure()`) in middleware services exposed to the REST API. Remember that EntityManager does not impose security restrictions.
-* Remember that entity attributes are not restricted by default even in case of DENYING Role. Setup permissions for each entity attribute individually.
-* Specify custom <<cuba.rest.client.secret,client secret>> on production.
+* Always disable access to the REST API for roles/users which are not supposed to use it. See `CUBA > REST API > Use REST API` specific permission in the role editor screen.
+* Use deny-by-default strategy: always assign `DENYING` role to users which have access to the REST API. Project model changes over time - it’s easy to miss adding granular restrictions.
+* Always configure and assign access group constraints for non-common entities to the REST API users.
+* Remember that `EntityManager` does not impose access group constraints, so consider using `DataManager` in middleware services exposed to the REST API.
+* Remember that entity attribute restrictions are not imposed by a `DENYING` role. Setup permissions for each entity attribute individually.
+* Specify a unique <<cuba.rest.client.secret,client secret>> in production environment.
 
-If you have troubles configuring fine-grained security for your project consider using custom endpoints instead of REST API.
+If you have troubles configuring fine-grained security for your project, consider implementing custom endpoints instead of the universal REST API.
