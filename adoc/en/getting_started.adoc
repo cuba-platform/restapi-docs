@@ -3,17 +3,32 @@
 [[getting_started]]
 == Getting Started
 
-Installation::
+=== Installation
+
+To install the add-on in your project follow the instruction below.
+
+. Double-click *Add-ons* in the CUBA project tree.
 +
---
-* If you are using Studio 11+, open the *CUBA > Marketplace* main menu item, then find and install the *REST API* add-on.
+image::addons.png[]
++
+. Select *Marketplace* tab and find *REST API* add-on.
++
+image::restapi_addon.png[]
++
+. Click *Install* button and then *Apply & Close*.
++
+image::addon_install.png[]
++
+. Click *Continue* in the dialog.
++
+image::addon_continue.png[]
 
-* Otherwise, see {manual}/app_components_usage.html[Using Public Add-ons] documentation for how to install the add-on using its coordinates in the repository. The coordinates can be copied from the add-on page at {marketplace}[Marketplace].
 
-Keep in mind that the add-on is built only for the framework version 7.1 and above. In the earlier versions, REST API was included in the core framework.
---
+*REST API* add-on will be installed in your project.
 
-Testing basic functionality::
+Keep in mind that the add-on is built only for the framework version 7.1 and above. In the earlier versions REST API was included in the core framework.
+
+=== Testing Basic Functionality
 +
 --
 * In Studio, you should see the *REST* element in the CUBA project tree after Gradle refresh is completed.
