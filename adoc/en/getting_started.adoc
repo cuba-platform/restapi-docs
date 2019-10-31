@@ -29,7 +29,6 @@ image::addon_continue.png[]
 Keep in mind that the add-on is built only for the framework version 7.1 and above. In the earlier versions REST API was included in the core framework.
 
 === Testing Basic Functionality
-+
 --
 * In Studio, you should see the *REST* element in the CUBA project tree after Gradle refresh is completed.
 
