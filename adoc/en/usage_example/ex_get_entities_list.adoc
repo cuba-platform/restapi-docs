@@ -11,7 +11,7 @@ A base URL for getting all instances of the `sales$Order` entity is as follows:
 
 To implement all the conditions described above the following request parameters must be specified:
 
-* *view* - a <<views, view>>, that will be used for loading entities. In our case the `order-edit-view` contains a `customer` reference.
+* *view* - a {manual}/views.html[view], that will be used for loading entities. In our case the `order-edit-view` contains a `customer` reference.
 * *limit* - a number of instances to be returned.
 * *offset* - a position of the first extracted record.
 * *sort* - an entity attribute name that will be used for sorting.
@@ -38,5 +38,5 @@ The response will be like this:
 include::{sourcesdir}/rest-orders-list-response.json[]
 ----
 
-Please note, that every entity in the response has a `_entityName` attribute with the entity name and an `_instanceName` attribute with the entity <<namePattern_annotation, instance name>>.
+Please note, that every entity in the response has a `_entityName` attribute with the entity name and an `_instanceName` attribute with the entity {manual}/manual.html#namePattern_annotation[instance name].
 

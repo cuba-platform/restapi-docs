@@ -19,7 +19,7 @@ include::{sourcesdir}/features/MyController.java[]
 include::{sourcesdir}/rest-dispatcher-spring.xml[]
 ----
 
-. Define an <<additive_app_properties,additive>> application property `cuba.restSpringContextConfig` in the properties file of the module,.e.g. `portal-app.properties`:
+. Define an {manual}/app_properties.html#additive_app_properties[additive] application property `cuba.restSpringContextConfig` in the properties file of the module,.e.g. `portal-app.properties`:
 +
 [source, properties]
 ----

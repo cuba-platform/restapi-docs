@@ -9,7 +9,7 @@ Let's consider the following situation:
 
 * Your REST client loads an instance of `Order` together with the nested collection of `OrderLine` instances.
 
-* There are <<constraints,security constraints>> that filter out some `OrderLine` instances, so the client does not load them and doesn't know they exist. Say `line5` is not loaded by the client but exists in the database.
+* There are {manual}/constraints.html[security constraints] that filter out some `OrderLine` instances, so the client does not load them and doesn't know they exist. Say `line5` is not loaded by the client but exists in the database.
 
 * If your client removes, say, `line2` from the collection and then saves the whole composition using the `/entities/{entityName}/{entityId}` endpoint, there are two outcomes:
 +

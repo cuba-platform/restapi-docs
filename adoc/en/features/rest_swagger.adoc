@@ -33,7 +33,7 @@ The generated documentation includes:
 +
 image::swagger_crud.png[align="center"]
 
-** <<rest_api_v2_ex_get_entities_list,>>,
+** <<rest_api_v2_ex_get_entities_list,getting an entity instances list>>.
 
 ** filtering entities.
 

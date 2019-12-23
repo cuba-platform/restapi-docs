@@ -3,7 +3,7 @@
 [[rest_api_v2_ex_service_get]]
 === Service Method Invocation (GET)
 
-Suppose there is an `OrderService` <<services, service>> in the system. The implementation looks as follows:
+Suppose there is an `OrderService` {manual}/services.html[service] in the system. The implementation looks as follows:
 
 [source, java]
 ----

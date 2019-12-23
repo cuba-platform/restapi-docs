@@ -3,7 +3,7 @@
 [[rest_api_v2_social_login]]
 ==== Social Login in REST API
 
-The mechanism of social login can be used in REST API too. The complete sample application is available on https://github.com/cuba-platform/sample-social-login/[GitHub] and described in the <<social_login>> section, below are the key points of getting an access token with a Facebook account.
+The mechanism of social login can be used in REST API too. The complete sample application is available on https://github.com/cuba-platform/sample-social-login/[GitHub] and described in the {manual}/social_login.html[social login] section, below are the key points of getting an access token with a Facebook account.
 
 . Create the `restapi` package under the root package of *web* module and implement the custom Spring MVC controller in it. This controller should contain two main methods: `get()` to get a `ResponseEntity` instance and `login()` to obtain an OAuth token.
 +

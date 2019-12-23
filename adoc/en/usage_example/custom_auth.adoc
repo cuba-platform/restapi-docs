@@ -15,7 +15,7 @@ Let's consider the custom authentication mechanism that enables getting an OAuth
 protected String code;
 ----
 
-. Create a <<users,user>> with *promo-user* login on behalf of which the authentication will be performed.
+. Create a {manual}/users.html[user] with *promo-user* login on behalf of which the authentication will be performed.
 
 . Create a new Spring configuration file with name `rest-dispatcher-spring.xml` under the root package (`com.company.demo`) of *web* module. The content of the file must be as follows:
 +

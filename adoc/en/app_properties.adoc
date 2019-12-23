@@ -8,7 +8,7 @@
 cuba.rest.allowedOrigins::
 +
 --
-Defines a comma-separated list of origins that can access the <<rest_api_v2,>>.
+Defines a comma-separated list of origins that can access the REST API.
 
 Default value: `*`
 
@@ -19,7 +19,7 @@ Used in the Web Client and Web Portal blocks.
 cuba.rest.anonymousEnabled::
 +
 --
-Enables an anonymous access to the <<rest_api_v2,>> endpoints.
+Enables an anonymous access to the REST API endpoints.
 
 Default value: `false`
 
@@ -41,7 +41,7 @@ Used in the Web Client and Web Portal blocks.
 cuba.rest.client.id::
 +
 --
-Defines an identifier of the REST API client. Client, in this case, is not a platform user, but an application (some web portal or mobile app) that uses <<rest_api_v2,>>. Client credentials are used for basic authentication when accessing the REST API token endpoint.
+Defines an identifier of the REST API client. Client, in this case, is not a platform user, but an application (some web portal or mobile app) that uses REST API. Client credentials are used for basic authentication when accessing the REST API token endpoint.
 
 Default value: `client`
 
@@ -52,7 +52,7 @@ Used in the Web Client and Web Portal blocks.
 cuba.rest.client.secret::
 +
 --
-Defines a password for the REST API client. Client, in this case, is not a platform user, but an application (some web portal or mobile app) that uses <<rest_api_v2,>>. Client credentials are used for basic authentication when accessing the REST API token endpoint. The application property value in addition to the actual password value (e.g. `secret`) must contain an identifier of the `PasswordEncoder` (e.g. `{noop}`).
+Defines a password for the REST API client. Client, in this case, is not a platform user, but an application (some web portal or mobile app) that uses REST API. Client credentials are used for basic authentication when accessing the REST API token endpoint. The application property value in addition to the actual password value (e.g. `secret`) must contain an identifier of the `PasswordEncoder` (e.g. `{noop}`).
 
 Default value: `{noop}secret`
 
@@ -63,7 +63,7 @@ Used in the Web Client and Web Portal blocks.
 cuba.rest.client.tokenExpirationTimeSec::
 +
 --
-Defines a <<rest_api_v2,>> access token expiration timeout for the default client in seconds.
+Defines a REST API access token expiration timeout for the default client in seconds.
 
 Default value: `43200` (12 hours)
 
@@ -74,7 +74,7 @@ Used in the Web Client and Web Portal blocks.
 cuba.rest.client.refreshTokenExpirationTimeSec::
 +
 --
-Defines a <<rest_api_v2,>> refresh token expiration timeout for the default client in seconds.
+Defines a REST API refresh token expiration timeout for the default client in seconds.
 
 Default value: `31536000` (365 days)
 
@@ -96,9 +96,9 @@ Used in the Middleware block.
 cuba.rest.jsonTransformationConfig::
 +
 --
-<<additive_app_properties,Additive>> property defining a file that contains JSON transformation configurations used by the <<rest_api_v2,>> when the client needs data in format of some particular data model version.
+{manual}/app_properties.html#additive_app_properties[Additive] property defining a file that contains JSON transformation configurations used by the REST API when the client needs data in format of some particular data model version.
 
-The file is loaded using the <<resources,Resources>> interface, so it can be located in classpath or in the <<conf_dir,configuration directory>>.
+The file is loaded using the {manual}/resources.html[Resources] interface, so it can be located in classpath or in the {manual}/conf_dir.html[configuration directory].
 
 The XSD of the file is available at {xsd_url}/rest-json-transformations.xsd.
 
@@ -118,7 +118,7 @@ Used in the Web Client and Web Portal blocks.
 cuba.rest.maxUploadSize::
 +
 --
-Maximum file size (in bytes) that can be uploaded with the <<rest_api_v2,>>.
+Maximum file size (in bytes) that can be uploaded with the REST API.
 
 Default value: `20971520` (20 Mb)
 
@@ -162,9 +162,9 @@ Used in the Web Client and Web Portal blocks.
 cuba.rest.servicesConfig::
 +
 --
-<<additive_app_properties,Additive>> property defining a file that contains a list of <<services,services>> available for application <<rest_api_v2,>> calls.
+{manual}/app_properties.html#additive_app_properties[Additive] property defining a file that contains a list of {manual}/services.html[services] available for application REST API calls.
 
-The file is loaded using the <<resources,Resources>> interface, so it can be located in classpath or in the <<conf_dir,configuration directory>>.
+The file is loaded using the {manual}/resources.html[Resources] interface, so it can be located in classpath or in the {manual}/conf_dir.html[configuration directory].
 
 The XSD of the file is available at {xsd_url}/rest-services-v2.xsd.
 
@@ -210,9 +210,9 @@ Used in the Web Client and Web Portal blocks.
 cuba.rest.queriesConfig::
 +
 --
-<<additive_app_properties,Additive>> property defining a file that contains a list of JPQL queries available for application <<rest_api_v2,>> calls.
+{manual}/app_properties.html#additive_app_properties[Additive] property defining a file that contains a list of JPQL queries available for application REST API calls.
 
-The file is loaded using the <<resources,Resources>> interface, so it can be located in classpath or in the <<conf_dir,configuration directory>>.
+The file is loaded using the {manual}/resources.html[Resources] interface, so it can be located in classpath or in the {manual}/conf_dir.html[configuration directory].
 
 The XSD of the file is available at {xsd_url}/rest-queries.xsd.
 
