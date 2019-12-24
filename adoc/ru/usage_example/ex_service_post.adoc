@@ -1,0 +1,66 @@
+:sourcesdir: ../../../source
+
+[[rest_api_v2_ex_service_post]]
+=== Вызов метода сервиса (POST)
+
+REST API позволяет выполнять методы сервисов, аргументами которых являются не только простые типы, но также:
+
+* сущности
+* коллекции сущностей
+* произвольные сериализуемые POJO
+
+Небольшой пример. Предположим, в сервис `OrderService`, созданный в предыдущем разделе, добавлен следующий метод:
+
+[source, java]
+----
+@Override
+public OrderValidationResult validateOrder(Order order, Date validationDate){
+    OrderValidationResult result=new OrderValidationResult();
+    result.setSuccess(false);
+    result.setErrorMessage("Validation of order "+order.getNumber()+" failed. validationDate parameter is: "+validationDate);
+    return result;
+}
+----
+
+Класс `OrderValidationResult` выглядит следующим образом:
+
+[source, java]
+----
+include::{sourcesdir}/features/OrderValidationResult.java[]
+----
+
+Новый метод сервиса принимает сущность `Order` в качестве первого аргумента и возвращает POJO.
+
+Перед вызовом данного метода с помощью REST API необходимо разрешить его, добавив запись в конфигурационный файл `rest-services.xml` (его создание было рассмотрено в <<rest_api_v2_ex_service_get>>):
+
+[source, xml]
+----
+include::{sourcesdir}/sales-rest-services-2.xml[]
+----
+
+Метод `validateOrder` сервиса вызывается *POST* запросом по адресу:
+
+`\http://localhost:8080/app/rest/v2/services/sales_OrderService/validateOrder`
+
+Параметры в случае POST передаются в теле запроса в JSON объекте. Каждое поле JSON объекта соответствует аргументу метода сервиса:
+
+[source, json]
+----
+include::{sourcesdir}/rest-validateOrder-service-request.json[]
+----
+
+Значение параметра должно быть передано в формате, определённого для соответствующего {manual}/datatype.html[datatype]. Например:
+
+- если тип параметра `java.util.Date`, то формат значения берётся из `DateTimeDatatype`. По умолчанию это `yyyy-MM-dd HH:mm:ss.SSS`
+- для типа параметра `java.sql.Date`  формат значения берётся из `DateDatatype` (по умолчанию `yyyy-MM-dd`)
+- для `java.sql.Time` соответствующим datatype является `TimeDatatype`, значение по умолчанию: `HH:mm:ss`
+
+OAuth-токен должен быть передан в заголовке запроса `Authorization` с типом *Bearer*.
+
+Метод вернет сериализованный POJO:
+
+[source, json]
+----
+include::{sourcesdir}/rest-validateOrder-service-response.json[]
+----
+

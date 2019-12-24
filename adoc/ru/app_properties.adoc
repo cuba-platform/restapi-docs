@@ -1,0 +1,229 @@
+:sourcesdir: ../../source
+
+[[app_properties]]
+[appendix]
+== Свойства приложения
+
+[[cuba.rest.allowedOrigins]]
+cuba.rest.allowedOrigins::
++
+--
+Задает список хостов, которым разрешен доступ к REST API. Значения хостов должны быть разделены запятой.
+
+Значение по умолчанию: `*`
+
+Используется в блоках Web Client и Web Portal.
+--
+
+[[cuba.rest.anonymousEnabled]]
+cuba.rest.anonymousEnabled::
++
+--
+Разрешает анонимный доступ к REST API.
+
+Значение по умолчанию: `false`
+
+Используется в блоках Web Client и Web Portal.
+--
+
+[[cuba.rest.client.id]]
+cuba.rest.client.id::
++
+--
+Задает идентификатор клиента REST API. Клиент - это не пользователь платформы, а приложение (какой-либо веб-портал или мобильный клиент), использующий REST API. Идентификатор и пароль клиента используются для базовой аутентификации при доступе к URL для получения токена.
+
+Значение по умолчанию: `client`
+
+Используется в блоках Web Client и Web Portal.
+--
+
+[[cuba.rest.client.authorizedGrantTypes]]
+cuba.rest.client.authorizedGrantTypes::
++
+--
+Определяеет список типов авторизации (grant type), поддерживаемых клиентом по умолчанию. Для отключения поддержки refresh-токенов, удалите элемент `refresh_token` из значения свойства.
+
+Значение по умолчанию: `password,external,refresh_token`
+
+Используется в блоках Web Client и Web Portal.
+--
+
+[[cuba.rest.client.secret]]
+cuba.rest.client.secret::
++
+--
+Задает пароль клиента REST API. Клиент - это не пользователь платформы, а приложение (какой-либо веб-портал или мобильный клиент), использующий REST API. Идентификатор и пароль клиента используются для базовой аутентификации при доступе к URL для получения токена. Значение свойства приложения помимо непосредственно пароля клиента REST API (например, `secret`) должно содержать и идентификатор используемого `PasswordEncoder` (например, `noop`).
+
+Значение по умолчанию: `{noop}secret`
+
+Используется в блоках Web Client и Web Portal.
+--
+
+[[cuba.rest.client.tokenExpirationTimeSec]]
+cuba.rest.client.tokenExpirationTimeSec::
++
+--
+Задает время жизни access токена REST API в секундах для клиента по умолчанию.
+
+Значение по умолчанию: `43200` (12 часов)
+
+Используется в блоках Web Client и Web Portal.
+--
+
+[[cuba.rest.client.refreshTokenExpirationTimeSec]]
+cuba.rest.client.refreshTokenExpirationTimeSec::
++
+--
+Задает время жизни refresh токена REST API в секундах для клиента по умолчанию.
+
+Значение по умолчанию: `31536000` (365 дней)
+
+Используется в блоках Web Client и Web Portal.
+--
+
+[[cuba.rest.deleteExpiredTokensCron]]
+cuba.rest.deleteExpiredTokensCron::
++
+--
+Задает выражение cron, определяющее расписание удаления истекших OAuth токенов из базы данных.
+
+Значение по умолчанию: `0 0 3 * * ?`
+
+Используется в блоке Middleware.
+--
+
+[[cuba.rest.jsonTransformationConfig]]
+cuba.rest.jsonTransformationConfig::
++
+--
+{manual}/app_properties.html#additive_app_properties[Аддитивное] свойство, задающее файл, содержащий конфигурацию JSON трансформеров, используемых REST API для случаев, когда клиентскому приложению требуются данные в формате определенной версии модели данных.
+
+Файл загружается с помощью интерфейса {manual}/resources.html[Resources], поэтому может быть расположен в classpath или в {manual}/conf_dir.html[конфигурационном каталоге].
+
+XSD файла доступна по адресу {xsd_url}/rest-json-transformations.xsd.
+
+Значение по умолчанию: отсутствует
+
+Пример:
+
+[source, properties]
+----
+cuba.rest.jsonTransformationConfig = +com/company/sample/json-transformations.xml
+----
+
+Используется в блоках Web Client и Web Portal.
+--
+
+[[cuba.rest.maxUploadSize]]
+cuba.rest.maxUploadSize::
++
+--
+Максимальный размер файла (в байтах), который может быть загружен с помощью REST API.
+
+Значение по умолчанию: `20971520` (20 Mb)
+
+Используется в блоках Web Client и Web Portal.
+--
+
+[[cuba.rest.optimisticLockingEnabled]]
+cuba.rest.optimisticLockingEnabled::
++
+--
+Включает оптимистичную блокировку сущностей, реализующих интерфейс `Versioned`, если атрибут `version` передан в JSON.
+
+Значение по умолчанию: `false`
+
+Используется в блоках Web Client и Web Portal.
+--
+
+[[cuba.rest.requiresSecurityToken]]
+cuba.rest.requiresSecurityToken::
++
+--
+Если установлен в true, то в JSON загружаемой из БД сущности включается дополнительный системный атрибут, и этот же атрибут ожидается от клиента при сохранении сущности. Подробнее см. <<rest_api_v2_security_constraints>>.
+
+Значение по умолчанию: `false`
+
+Используется в блоках Web Client и Web Portal.
+--
+
+[[cuba.rest.reuseRefreshToken]]
+cuba.rest.reuseRefreshToken::
++
+--
+Определяет, должен ли refresh-токен быть повторно использован. Если установить значение в `false`, то когда access-токен запрашивается с помощью refresh-токена, то будет выдан новый refresh-токен, а старый будет удалён.
+
+Значение по умолчанию: `true`
+
+Используется в блоках Web Client и Web Portal.
+--
+
+[[cuba.rest.servicesConfig]]
+cuba.rest.servicesConfig::
++
+--
+{manual}/app_properties.html#additive_app_properties[Аддитивное] свойство задающее файл, который содержит список доступных для вызова через REST API сервисов.
+
+Файл загружается с помощью интерфейса {manual}/resources.html[Resources], поэтому может быть расположен в classpath или в {manual}/conf_dir.html[конфигурационном каталоге].
+
+XSD файла доступна по адресу {xsd_url}/rest-services-v2.xsd.
+
+Значение по умолчанию: не задано
+
+Example:
+
+[source, properties]
+----
+cuba.rest.servicesConfig = +com/company/sample/app-rest-services.xml
+----
+
+Используется в блоках Web Client и Web Portal.
+--
+
+[[cuba.rest.storeTokensInDb]]
+cuba.rest.storeTokensInDb::
++
+--
+Включает хранение OAuth токенов в базе данных. По умолчанию токены хранятся только в памяти.
+
+Хранится в базе данных.
+
+Интерфейс: `ServerConfig`
+
+Значение по умолчанию: `false`
+
+Используется в блоке Middleware.
+--
+
+[[cuba.rest.tokenMaskingEnabled]]
+cuba.rest.tokenMaskingEnabled::
++
+--
+Определяет, должны ли токены REST API быть маскированы в логах приложения.
+
+Значение по умолчанию: `true`
+
+Используется в блоках Web Client и Web Portal.
+--
+
+[[cuba.rest.queriesConfig]]
+cuba.rest.queriesConfig::
++
+--
+{manual}/app_properties.html#additive_app_properties[Аддитивное] свойство задающее файл, который содержит список доступных для выполнения через REST API JPQL запросов.
+
+Файл загружается с помощью интерфейса {manual}/resources.html[Resources], поэтому может быть расположен в classpath или в {manual}/conf_dir.html[конфигурационном каталоге].
+
+XSD файла доступна по адресу {xsd_url}/rest-queries.xsd.
+
+Значение по умолчанию: не задано
+
+Example:
+
+[source, properties]
+----
+cuba.rest.queriesConfig = +com/company/sample/app-rest-queries.xml
+----
+
+Используется в блоках Web Client и Web Portal.
+--

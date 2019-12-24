@@ -1,0 +1,26 @@
+:sourcesdir: ../../source
+
+[[features]]
+== Возможности
+
+Раздел содержит описание  особенностей и конфигурационных параметров REST API. Раздел <<rest_api_v2_usage_example,Использование REST API>> содержит примеры, демонстрирующие возможности REST API в действии.
+
+include::features/queries_config.adoc[]
+
+include::features/services_config.adoc[]
+
+include::features/data_model_versioning.adoc[]
+
+include::features/cors.adoc[]
+
+include::features/anonymous.adoc[]
+
+include::features/settings.adoc[]
+
+include::features/custom_controllers.adoc[]
+
+include::features/security_constraints.adoc[]
+
+include::features/persistent_token_store.adoc[]
+
+include::features/rest_swagger.adoc[]

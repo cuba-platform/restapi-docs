@@ -1,0 +1,57 @@
+:sourcesdir: ../../source
+
+[[getting_started]]
+== Начало работы
+
+=== Установка
+
+Для добавления аддона в проект выполните следующие действия:
+
+. Кликните дважды *Add-ons* в дереве проекта CUBA.
++
+image::addons.png[]
++
+. Перейдите на вкладку *Marketplace* и найдите аддон *REST API*.
++
+image::restapi_addon.png[]
++
+. Кликните *Install* и затем *Apply & Close*.
++
+image::addon_install.png[]
++
+. Кликните *Continue* в появившемся диалоговом окне.
++
+image::addon_continue.png[]
+
+Аддон, соответствующий используемой версии платформы, будет добавлен в проект.
+
+Имейте в виду, что аддон предоставляется для платформы версии 7.1 и выше. В более ранних версиях REST API был включен в основной фреймворк.
+
+=== Тестирование базовой функциональности
+--
+* После окончания обновления Gradle в CUBA Studio в дереве проекта вы увидите элемент REST.
+
+* Запустите приложение и протестируйте REST API с помощью инструмента командной строки `curl`:
+
+. Запрос OAuth токена:
++
+----
+curl -X POST \
+  http://localhost:8080/app/rest/v2/oauth/token \
+  -H 'Authorization: Basic Y2xpZW50OnNlY3JldA==' \
+  -H 'Content-Type: application/x-www-form-urlencoded' \
+  -d 'grant_type=password&username=admin&password=admin'
+----
++
+Вы получите результат в формате JSON с некоторым значением `access_token`. Используйте его для дальнейших запросов в заголовке `Authorization`.
+
+. Запрос списка ролей (замените `<access_token>` значением, полученным на предыдущем шаге):
++
+----
+  curl -X GET \
+  'http://localhost:8080/app/rest/v2/entities/sec$Role' \
+  -H 'Authorization: Bearer <access_token>'
+----
++
+Ответ будет содержать все зарегистрированные роли при условии, что пользователь, для которого был получен токен, имеет разрешение на чтение сущности `sec$Role`.
+--

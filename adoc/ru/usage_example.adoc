@@ -1,0 +1,43 @@
+:sourcesdir: ../../source
+
+[[rest_api_v2_usage_example]]
+== Использование REST API
+
+Данный раздел содержит ряд примеров использования REST API.
+
+[TIP]
+====
+Детальная информация о методах REST API доступна по адресу {rest_swagger_url}.
+====
+
+include::usage_example/ex_get_token.adoc[]
+
+include::usage_example/ldap.adoc[]
+
+include::usage_example/custom_auth.adoc[]
+
+include::usage_example/ex_get_entities_list.adoc[]
+
+include::usage_example/ex_create_entity.adoc[]
+
+include::usage_example/ex_update_entity.adoc[]
+
+include::usage_example/ex_query_get.adoc[]
+
+include::usage_example/ex_query_post.adoc[]
+
+include::usage_example/ex_service_get.adoc[]
+
+include::usage_example/ex_service_post.adoc[]
+
+include::usage_example/ex_file_download.adoc[]
+
+include::usage_example/ex_file_upload.adoc[]
+
+include::usage_example/ex_javascript_usage.adoc[]
+
+include::usage_example/ex_localized_messages.adoc[]
+
+include::usage_example/ex_json_transformations.adoc[]
+
+include::usage_example/ex_search_filter.adoc[]
