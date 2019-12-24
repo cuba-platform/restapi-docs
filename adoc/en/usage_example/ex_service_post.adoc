@@ -49,7 +49,7 @@ In case of the POST request parameters are passed in the request body. The reque
 include::{sourcesdir}/rest-validateOrder-service-request.json[]
 ----
 
-Parameter value must be passed in a format defined for the corresponding <<datatype,datatype>>. For example:
+Parameter value must be passed in a format defined for the corresponding {manual}/datatype.html[datatype]. For example:
 
 - if the parameter type is `java.util.Date`, then the value pattern is taken from the `DateTimeDatatype`. By default it is `yyyy-MM-dd HH:mm:ss.SSS`
 - for `java.sql.Date` parameter type, the value pattern is taken from the `DateDatatype` and it is `yyyy-MM-dd` by default

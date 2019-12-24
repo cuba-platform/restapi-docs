@@ -38,5 +38,5 @@ The response will be like this:
 include::{sourcesdir}/rest-orders-list-response.json[]
 ----
 
-Please note, that every entity in the response has a `_entityName` attribute with the entity name and an `_instanceName` attribute with the entity {manual}/manual.html#namePattern_annotation[instance name].
+Please note, that every entity in the response has a `_entityName` attribute with the entity name and an `_instanceName` attribute with the entity {manual}/entity_class_annotations.html#namePattern_annotation[instance name].
 

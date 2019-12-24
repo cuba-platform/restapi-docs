@@ -16,6 +16,7 @@ asciidoctor {
     sourceDir = file('adoc')
     sources {
         include 'en/restapi.adoc'
+        include 'ru/restapi.adoc'
     }
     outputDir = file('build')
     attributes 'revnumber': docVersion
@@ -26,6 +27,11 @@ asciidoctor.doLast {
         from 'img'
         into 'build/html5/en/img'
     }
+
+    copy {
+        from 'img'
+        into 'build/html5/ru/img'
+    }
     
     copy {
         from 'styles'
@@ -33,8 +39,18 @@ asciidoctor.doLast {
     }
 
     copy {
+        from 'styles'
+        into 'build/html5/ru/styles'
+    }
+
+    copy {
         from 'js'
         into 'build/html5/en/js'
+    }
+
+    copy {
+        from 'js'
+        into 'build/html5/ru/js'
     }
 }
 
@@ -48,4 +64,12 @@ build.doLast {
         rename 'restapi.html', 'index.html'
     }
     ant.jar(destfile: "$buildDir/war/restapi-${docVersion}.war", basedir: tmpDir)
+
+    def tmpRuDir = new File(buildDir, "tmp/war/restapi-ru")
+    copy {
+        from "$buildDir/html5/ru"
+        into tmpRuDir
+        rename 'restapi.html', 'index.html'
+    }
+    ant.jar(destfile: "$buildDir/war/restapi-ru-${docVersion}.war", basedir: tmpRuDir)
 }
