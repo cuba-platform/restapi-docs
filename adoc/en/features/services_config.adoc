@@ -10,7 +10,7 @@ The list of service methods that are available via the REST API must be configur
 cuba.rest.servicesConfig = +com/company/myapp/rest-services.xml
 ----
 
-The content of the `rest-services.xml` must be placed in the root package of the *web* or *portal* module (e.g. `com.company.myapp`). Its content is defined by the http://schemas.haulmont.com/cuba/{revnumber}/rest-services-v2.xsd[rest-services-v2.xsd] schema, for example:
+The content of the `rest-services.xml` must be placed in the root package of the *web* or *portal* module (e.g. `com.company.myapp`). Its content is defined by the {xsd_url}/rest-services-v2.xsd[rest-services-v2.xsd] schema, for example:
 
 [source, xml]
 ----

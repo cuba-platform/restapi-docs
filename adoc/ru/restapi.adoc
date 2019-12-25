@@ -19,6 +19,7 @@
 :lang: ru
 :version-label: Версия
 :revremark: Copyright (c) 2019 Haulmont (www.haulmont.com)
+:xsd_url: http://schemas.haulmont.com/restapi/{revnumber}
 :marketplace: https://www.cuba-platform.ru/marketplace
 :manual: https://doc.cuba-platform.com/manual-{revnumber}-ru
 :release_notes: http://files.cuba-platform.com/cuba/release-notes/{revnumber}

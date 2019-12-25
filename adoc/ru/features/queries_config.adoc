@@ -10,7 +10,7 @@
 cuba.rest.queriesConfig = +com/company/myapp/rest-queries.xml
 ----
 
-Файл `rest-queries.xml` должен находиться в главном пакете модуля *web* или *portal* (например, `com.company.myapp`). Его содержимое определяется схемой http://schemas.haulmont.com/cuba/{revnumber}/rest-queries.xsd[rest-queries.xsd], например:
+Файл `rest-queries.xml` должен находиться в главном пакете модуля *web* или *portal* (например, `com.company.myapp`). Его содержимое определяется схемой {xsd_url}/rest-queries.xsd[rest-queries.xsd], например:
 
 [source, xml]
 ----
@@ -26,4 +26,3 @@ include::{sourcesdir}/rest-queries-config.xml[]
 Атрибут `cacheable` элемента `query` включает {manual}/entity_cache.html[кэширование] данного запроса.
 
 Запрос может содержать предопределенные параметры, которые принимают значения идентификатора и логина текущего пользователя: `session$userId` и `session$userLogin`. Их не нужно объявлять в элементе `params` (см. пример выше).
-

@@ -10,7 +10,7 @@ In the CUBA application, predefined JPQL queries must be specified in files regi
 cuba.rest.queriesConfig = +com/company/myapp/rest-queries.xml
 ----
 
-The `rest-queries.xml` file must be placed in the root package of the *web* or *portal* module (e.g. `com.company.myapp`). Its content is defined by the http://schemas.haulmont.com/cuba/{revnumber}/rest-queries.xsd[rest-queries.xsd] schema, for example:
+The `rest-queries.xml` file must be placed in the root package of the *web* or *portal* module (e.g. `com.company.myapp`). Its content is defined by the {xsd_url}/rest-queries.xsd[rest-queries.xsd] schema, for example:
 
 [source, xml]
 ----
