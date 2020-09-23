@@ -1,16 +1,17 @@
 @RestController
 @RequestMapping("auth-code")
 public class AuthCodeController {
+
     @Inject
     private OAuthTokenIssuer oAuthTokenIssuer;
-    @Inject
-    private LoginService loginService;
     @Inject
     private Configuration configuration;
     @Inject
     private DataManager dataManager;
     @Inject
     private MessageTools messageTools;
+    @Inject
+    private TrustedClientService trustedClientService;
 
     // here we check secret code and issue token using OAuthTokenIssuer
     @RequestMapping(method = RequestMethod.GET)
@@ -19,7 +20,7 @@ public class AuthCodeController {
         WebAuthConfig webAuthConfig = configuration.getConfig(WebAuthConfig.class);
         UserSession systemSession;
         try {
-            systemSession = loginService.getSystemSession(webAuthConfig.getTrustedClientPassword());
+            systemSession = trustedClientService.getSystemSession(webAuthConfig.getTrustedClientPassword());
         } catch (LoginException e) {
             throw new RuntimeException("Error during system auth");
         }
@@ -29,7 +30,7 @@ public class AuthCodeController {
         try {
             // find coupon with code
             LoadContext<Coupon> loadContext = LoadContext.create(Coupon.class)
-                    .setQuery(LoadContext.createQuery("select c from demo$Coupon c where c.code = :code")
+                    .setQuery(LoadContext.createQuery("select c from demo_Coupon c where c.code = :code")
                             .setParameter("code", authCode));
 
             if (dataManager.load(loadContext) == null) {

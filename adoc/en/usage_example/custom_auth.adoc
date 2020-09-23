@@ -15,9 +15,13 @@ Let's consider the custom authentication mechanism that enables getting an OAuth
 protected String code;
 ----
 
+. Create a role that includes `cuba.restApi.enabled` specific permission and grants permissions to read the required entities and attributes.
+
 . Create a {manual}/users.html[user] with *promo-user* login on behalf of which the authentication will be performed.
 
-. Create a new Spring configuration file with name `rest-dispatcher-spring.xml` under the root package (`com.company.demo`) of *web* module. The content of the file must be as follows:
+. Assign the created role to the *promo-user*.
+
+. Create a new Spring configuration file with the name `rest-dispatcher-spring.xml` under the root package (`com.company.demo`) of *web* module. The content of the file must be as follows:
 +
 [source, xml]
 ----
