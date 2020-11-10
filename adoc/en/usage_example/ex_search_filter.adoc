@@ -29,6 +29,11 @@ By default, search criteria are applied with the AND operation.
 
 This example also demonstrates that nested properties are supported (`author.firstName`).
 
+[TIP]
+====
+For a full list of all supported operators used in search conditions, see the http://files.cuba-platform.com/swagger/{revnumber}/#!/Entities/get_entities_entityName_search[Swagger documentation].
+====
+
 Example 2::
 
 The next example demonstrates two things: how to execute a search with the POST request and how to use OR groups. In case of POST request all parameters must be passed in the JSON object that is passed in the request body. The search filter must be placed in the object field called `filter`. All other parameters (view name, limit, etc.) must be placed in fields with corresponding names:
