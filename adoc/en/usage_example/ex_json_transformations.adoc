@@ -6,16 +6,16 @@
 Entity attribute was renamed::
 +
 --
-Let's suppose that the `oldNumber` attribute of the `sales$Order` entity was renamed to `newNumber` and `date` was renamed to `deliveryDate`. In this case transformation config will be like this:
+Let's suppose that the `oldNumber` attribute of the `sales_Order` entity was renamed to `newNumber` and `date` was renamed to `deliveryDate`. In this case transformation config will be like this:
 
 [source, xml]
 ----
 include::{sourcesdir}/rest-transform-attr-renamed-config.xml[]
 ----
 
-If the client app needs to work with the old version of the `sales$Order` entity then it must pass the `modelVersion` value in the URL parameter:
+If the client app needs to work with the old version of the `sales_Order` entity then it must pass the `modelVersion` value in the URL parameter:
 
-`\http://localhost:8080/app/rest/v2/entities/sales$Order/c838be0a-96d0-4ef4-a7c0-dff348347f93?modelVersion=1.0`
+`\http://localhost:8080/app/rest/v2/entities/sales_Order/c838be0a-96d0-4ef4-a7c0-dff348347f93?modelVersion=1.0`
 
 The following result will be returned:
 
@@ -30,7 +30,7 @@ The response JSON contains an `oldNumber` and `date` attributes although the ent
 Entity name was changed::
 +
 --
-Next, let's imagine, that in some next release of the application a name of the `sales$Order` entity was also changed. The new name is `sales$NewOrder`.
+Next, let's imagine, that in some next release of the application a name of the `sales_Order` entity was also changed. The new name is `sales_NewOrder`.
 
 Transformation config for version `1.1` will be like this:
 
@@ -41,11 +41,11 @@ include::{sourcesdir}/rest-transform-entity-name-changed-config.xml[]
 
 In addition to the config from the previous example an `oldEntityName` attribute is added here. It specifies the entity name that was valid for model version `1.1`. The `currentEntityName` attribute specifies the current entity name.
 
-Although an entity with a name `sales$Order` doesn't exist anymore, the following request will work:
+Although an entity with a name `sales_Order` doesn't exist anymore, the following request will work:
 
-`\http://localhost:8080/app/rest/v2/entities/sales$Order/c838be0a-96d0-4ef4-a7c0-dff348347f93?modelVersion=1.1`
+`\http://localhost:8080/app/rest/v2/entities/sales_Order/c838be0a-96d0-4ef4-a7c0-dff348347f93?modelVersion=1.1`
 
-The REST API controller will understand that it must search among `sales$NewOrder` entities and after the entity with given id is found names of the entity and of the `newNumber` attribute will be replaced in the result JSON:
+The REST API controller will understand that it must search among `sales_NewOrder` entities and after the entity with given id is found names of the entity and of the `newNumber` attribute will be replaced in the result JSON:
 
 [source, json]
 ----
@@ -56,7 +56,7 @@ The client app can also use the old version of data model for entity update and 
 
 This *POST* request that uses old entity name and has old JSON in the request body will work:
 
-`\http://localhost:8080/app/rest/v2/entities/sales$Order`
+`\http://localhost:8080/app/rest/v2/entities/sales_Order`
 
 [source, json]
 ----
@@ -80,7 +80,7 @@ Transformation in this config file contains a `toVersion` tag with a nested `rem
 
 In this case if you perform the request without the `modelVersion` attribute, the discount attribute will be returned:
 
-`\http://localhost:8080/app/rest/v2/entities/sales$Order/c838be0a-96d0-4ef4-a7c0-dff348347f93`
+`\http://localhost:8080/app/rest/v2/entities/sales_Order/c838be0a-96d0-4ef4-a7c0-dff348347f93`
 
 [source, json]
 ----
@@ -89,7 +89,7 @@ include::{sourcesdir}/rest-transform-attr-removed-response-2.json[]
 
 If you specify the `modelVersion` then `discount` attribute will be removed
 
-`\http://localhost:8080/app/rest/v2/entities/sales$Order/c838be0a-96d0-4ef4-a7c0-dff348347f93?modelVersion=1.1`
+`\http://localhost:8080/app/rest/v2/entities/sales_Order/c838be0a-96d0-4ef4-a7c0-dff348347f93?modelVersion=1.1`
 
 [source, json]
 ----
@@ -100,7 +100,7 @@ include::{sourcesdir}/rest-transform-attr-removed-response.json[]
 Using custom transformer::
 +
 --
-You can also create and register a custom JSON transformer. As an example let's examine the following situation: there was an entity `sales$OldOrder` that was renamed to `sales$NewOrder`. This entity has an `orderDate` field. In the previous version, this date field contained a time part, but in the latest version of the entity, the time part is removed. REST API client that request the entity with an old model version `1.0` expects the date field to have the time part, so the transformer must modify the value in the JSON.
+You can also create and register a custom JSON transformer. As an example let's examine the following situation: there was an entity `sales_OldOrder` that was renamed to `sales_NewOrder`. This entity has an `orderDate` field. In the previous version, this date field contained a time part, but in the latest version of the entity, the time part is removed. REST API client that request the entity with an old model version `1.0` expects the date field to have the time part, so the transformer must modify the value in the JSON.
 
 First, that's how the transformer configuration must look like:
 
@@ -138,7 +138,7 @@ include::{sourcesdir}/features/OrderJsonTransformerToVersion.java[]
 
 This transformer finds the `orderDate` node in the JSON object and modifies its value by adding the time part to the value.
 
-When the `sales$OldOrder` entity with a data model version `1.0` is requested, the result JSON will contain entities with `orderDate` fields that contain time part, although it is not stored in the database anymore.
+When the `sales_OldOrder` entity with a data model version `1.0` is requested, the result JSON will contain entities with `orderDate` fields that contain time part, although it is not stored in the database anymore.
 
 A couple more words about custom transformers. They must implement the `EntityJsonTransformer` interface. You can also extend the `AbstractEntityJsonTransformer` class and override its `doCustomTransformations` method. The `AbstractEntityJsonTransformer` contains all functionality of the standard transformer.
 --

@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <transformations xmlns="http://schemas.haulmont.com/cuba/rest-json-transformations.xsd">
-    <transformation modelVersion="1.5" currentEntityName="sales$Order">
+    <transformation modelVersion="1.5" currentEntityName="sales_Order">
         <toVersion>
             <removeAttribute name="discount"/>
         </toVersion>

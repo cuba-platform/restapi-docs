@@ -21,7 +21,7 @@ include::{sourcesdir}/rest-queries-config.xml[]
 
 Платформа также предоставляет встроенный запрос `all` для получения списка всех экземпляров некоторой сущности. Он может быть использован совместно с `/count`, чтобы получить общее количество экземпляров сущности, например:
 
-  http://localhost:8080/app/rest/v2/queries/sales$Order/all/count
+  http://localhost:8080/app/rest/v2/queries/sales_Order/all/count
 
 Атрибут `cacheable` элемента `query` включает {manual}/entity_cache.html[кэширование] данного запроса.
 

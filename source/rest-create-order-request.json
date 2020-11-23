@@ -1,20 +1,24 @@
 {
-  "number": "00017",
-  "date": "2016-09-01",
-  "description": "Back to school",
-  "items": [
+  "date": "2020-12-01",
+  "lines": [
     {
-      "_entityName": "sales$OrderItem",
-      "price": 100,
-      "name": "School bag"
+      "_entityName": "sales_OrderLine",
+      "product": {
+        "price": 10,
+        "name": "Apple"
+      },
+      "quantity": 20
     },
     {
-      "_entityName": "sales$OrderItem",
-      "price": 9.90,
-      "name": "Pencils"
+      "_entityName": "sales_OrderLine",
+      "product": {
+        "price": 15,
+        "name": "Milk"
+      },
+      "quantity": 10
     }
   ],
   "customer": {
-    "id": "4aa9a9d8-01df-c8df-34c8-c385b566ea05"
+    "id": "a09983f6-540c-5d49-a4cf-d2343b6ee44b"
   }
 }

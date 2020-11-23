@@ -21,7 +21,7 @@ function login() {
 
 function loadCustomers() {
     $.get({
-        url: 'http://localhost:8080/app/rest/v2/entities/sales$Customer?view=_local',
+        url: 'http://localhost:8080/app/rest/v2/entities/sales_Customer?view=_local',
         headers: {
             'Authorization': 'Bearer ' + oauthToken,
             'Content-Type': 'application/x-www-form-urlencoded'

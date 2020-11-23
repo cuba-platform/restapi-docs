@@ -21,7 +21,7 @@ An example of how to configure and execute a query can be found in the <<rest_ap
 
 The platform also provides the predefined `all` query for getting all instances of a specified entity type. It can be used with `/count` to receive the total number of entity instances, for example:
 
-  http://localhost:8080/app/rest/v2/queries/sales$Order/all/count
+  http://localhost:8080/app/rest/v2/queries/sales_Order/all/count
 
 The `query` element can have the `cacheable` attribute that enables {manual}/entity_cache.html[caching] of the query.
 

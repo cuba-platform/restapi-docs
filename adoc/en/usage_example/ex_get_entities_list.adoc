@@ -3,11 +3,11 @@
 [[rest_api_v2_ex_get_entities_list]]
 === Getting an Entity Instances List
 
-Let's suppose that the system has a `sales$Order` entity and we need to get a list of this entity instances. Besides, we need to get not all the records, but only 50 records, starting with the 100th one. A response must contain not only simple properties of the `sales$Order` entity but also an information about the order customer (a reference field named `customer`). Orders must be sorted by date.
+Let's suppose that the system has a `sales_Order` entity and we need to get a list of this entity instances. Besides, we need to get not all the records, but only 50 records, starting with the 100th one. A response must contain not only simple properties of the `sales_Order` entity but also an information about the order customer (a reference field named `customer`). Orders must be sorted by date.
 
-A base URL for getting all instances of the `sales$Order` entity is as follows:
+A base URL for getting all instances of the `sales_Order` entity is as follows:
 
-`\http://localhost:8080/app/rest/v2/entities/sales$Order`
+`\http://localhost:8080/app/rest/v2/entities/sales_Order`
 
 To implement all the conditions described above the following request parameters must be specified:
 
@@ -22,7 +22,7 @@ An OAuth token must be put in the `Authorization` header with the `Bearer` type:
 
 As a result, we get the following *GET* request URL:
 
-`\http://localhost:8080/app/rest/v2/entities/sales$Order?view=order-edit-view&limit=50&offset=100&sort=date`
+`\http://localhost:8080/app/rest/v2/entities/sales_Order?view=order-edit-view&limit=50&offset=100&sort=date`
 
 Using https://curl.haxx.se/[cURL], the request will look like:
 

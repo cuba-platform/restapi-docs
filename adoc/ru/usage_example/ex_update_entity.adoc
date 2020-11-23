@@ -3,9 +3,9 @@
 [[rest_api_v2_ex_update_entity]]
 === Изменение существующего экземпляра сущности
 
-Для изменения экземпляра сущности `sales$Order` необходимо выполнить *PUT* запрос по адресу:
+Для изменения экземпляра сущности `sales_Order` необходимо выполнить *PUT* запрос по адресу:
 
-`\http://localhost:8080/app/rest/v2/entities/sales$Order/5d7ff8e3-7828-ba94-d6ba-155c5c4f2a50`
+`\http://localhost:8080/app/rest/v2/entities/sales_Order/5d7ff8e3-7828-ba94-d6ba-155c5c4f2a50`
 
 Последняя часть запроса здесь - это идентификатор изменяемой сущности.
 
@@ -27,5 +27,5 @@ include::{sourcesdir}/rest-update-order-response.json[]
 
 [TIP]
 ====
-JSON объект из примера выше содержит атрибут `version`, это означает, что сущность `sales$Order` реализует интерфейс {manual}/entity_attr_annotations.html#version_annotation[Versioned] и, таким образом, поддерживает оптимистичную блокировку. Чтобы включить оптимистичную блокировку сущностей, установите свойство приложения <<cuba.rest.optimisticLockingEnabled,cuba.rest.optimisticLockingEnabled>> в `true`. Обратите внимание, что если  атрибут `version` не содержится в JSON, оптимистичная блокировка работать не будет.
+JSON объект из примера выше содержит атрибут `version`, это означает, что сущность `sales_Order` реализует интерфейс {manual}/entity_attr_annotations.html#version_annotation[Versioned] и, таким образом, поддерживает оптимистичную блокировку. Чтобы включить оптимистичную блокировку сущностей, установите свойство приложения <<cuba.rest.optimisticLockingEnabled,cuba.rest.optimisticLockingEnabled>> в `true`. Обратите внимание, что если  атрибут `version` не содержится в JSON, оптимистичная блокировка работать не будет.
 ====

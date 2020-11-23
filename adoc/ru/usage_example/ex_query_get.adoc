@@ -19,11 +19,11 @@ include::{sourcesdir}/sales-rest-queries.xml[]
 
 Для выполнения JPQL запроса, необходимо выполнить *GET* http-запрос к REST API:
 
-`\http://localhost:8080/app/rest/v2/queries/sales$Order/ordersAfterDate?startDate=2016-11-01&endDate=2017-11-01`
+`\http://localhost:8080/app/rest/v2/queries/sales_Order/ordersAfterDate?startDate=2016-11-01&endDate=2017-11-01`
 
 Части URL:
 
-* `sales$Order` - имя извлекаемой сущности.
+* `sales_Order` - имя извлекаемой сущности.
 * `ordersAfterDate` - имя запроса из конфигурационного файла.
 * `startDate` и `endDate` - параметры запроса со значениями.
 

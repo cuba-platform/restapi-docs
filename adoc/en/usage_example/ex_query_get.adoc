@@ -19,11 +19,11 @@ include::{sourcesdir}/sales-rest-queries.xml[]
 
 To execute a JPQL query the following *GET* request must be executed:
 
-`\http://localhost:8080/app/rest/v2/queries/sales$Order/ordersAfterDate?startDate=2016-11-01&endDate=2017-11-01`
+`\http://localhost:8080/app/rest/v2/queries/sales_Order/ordersAfterDate?startDate=2016-11-01&endDate=2017-11-01`
 
 The request URL parts:
 
-* `sales$Order` - extracted entity name.
+* `sales_Order` - extracted entity name.
 * `ordersAfterDate` - a query name from the configuration file.
 * `startDate` and `endDate` - request parameters with the values.
 

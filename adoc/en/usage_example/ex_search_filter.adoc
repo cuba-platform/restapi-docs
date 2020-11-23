@@ -12,7 +12,7 @@ Let's suppose that we have two entities:
 
 To perform a search with conditions we must use the URL like this:
 
-`\http://localhost:8080/app/rest/v2/entities/test$Book/search`
+`\http://localhost:8080/app/rest/v2/entities/test_Book/search`
 
 The search conditions must be passed in the `filter` parameter. It is a JSON object that contains a set of conditions. If the search is performed with the GET request, then the `filter` parameter must be passed in the URL.
 

@@ -19,5 +19,5 @@ include::{sourcesdir}/rest-post-query.json[]
 
 The POST request URL:
 
-`\http://localhost:8080/app/rest/v2/queries/sales$Order/ordersByIds?returnCount=true`
+`\http://localhost:8080/app/rest/v2/queries/sales_Order/ordersByIds?returnCount=true`
 

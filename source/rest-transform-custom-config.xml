@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <transformations xmlns="http://schemas.haulmont.com/cuba/rest-json-transformations.xsd">
 
-    <transformation modelVersion="1.0" oldEntityName="sales$OldOrder" currentEntityName="sales$NewOrder">
+    <transformation modelVersion="1.0" oldEntityName="sales_OldOrder" currentEntityName="sales_NewOrder">
         <custom>
             <fromVersion transformerBeanRef="sales_OrderJsonTransformerFromVersion"/>
             <toVersion transformerBeanRef="sales_OrderJsonTransformerToVersion"/>

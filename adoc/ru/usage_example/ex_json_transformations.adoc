@@ -6,16 +6,16 @@
 Атрибут сущности переименован::
 +
 --
-Предположим, атрибут `oldNumber` сущности `sales$Order` был переименован в `newNumber`, а атрибут `date` был переименован в `deliveryDate`. В этом случае конфигурация трансформации будет выглядеть следующим образом:
+Предположим, атрибут `oldNumber` сущности `sales_Order` был переименован в `newNumber`, а атрибут `date` был переименован в `deliveryDate`. В этом случае конфигурация трансформации будет выглядеть следующим образом:
 
 [source, xml]
 ----
 include::{sourcesdir}/rest-transform-attr-renamed-config.xml[]
 ----
 
-Если клиентскому приложению необходимо работать со старой версии сущности `sales$Order`, то приложение должно передать значение версии модели данных в параметре URL `modelVersion`:
+Если клиентскому приложению необходимо работать со старой версии сущности `sales_Order`, то приложение должно передать значение версии модели данных в параметре URL `modelVersion`:
 
-`\http://localhost:8080/app/rest/v2/entities/sales$Order/c838be0a-96d0-4ef4-a7c0-dff348347f93?modelVersion=1.0`
+`\http://localhost:8080/app/rest/v2/entities/sales_Order/c838be0a-96d0-4ef4-a7c0-dff348347f93?modelVersion=1.0`
 
 Будет возвращен следующий результат:
 
@@ -30,7 +30,7 @@ include::{sourcesdir}/rest-transform-attr-renamed-response.json[]
 Имя сущности изменено::
 +
 --
-Предположим, что в одном из следующих релизов приложения имя сущности `sales$Order` также было изменено. Новое имя сущности теперь `sales$NewOrder`.
+Предположим, что в одном из следующих релизов приложения имя сущности `sales_Order` также было изменено. Новое имя сущности теперь `sales_NewOrder`.
 
 Конфиг трансформации для версии `1.1` выглядит так:
 
@@ -41,11 +41,11 @@ include::{sourcesdir}/rest-transform-entity-name-changed-config.xml[]
 
 В дополнение к конфигу из предыдущего примера здесь появился атрибут `oldEntityName`. Он описывает имя сущности, действительное для версии модели данных `1.1`. Атрибут `currentEntityName` описывает текущее имя сущности.
 
-Хотя сущность с именем `sales$Order` более не существует, следующий запрос будет работать:
+Хотя сущность с именем `sales_Order` более не существует, следующий запрос будет работать:
 
-`\http://localhost:8080/app/rest/v2/entities/sales$Order/c838be0a-96d0-4ef4-a7c0-dff348347f93?modelVersion=1.1`
+`\http://localhost:8080/app/rest/v2/entities/sales_Order/c838be0a-96d0-4ef4-a7c0-dff348347f93?modelVersion=1.1`
 
-Контроллер REST API поймет, что поиск должен быть осуществлен среди экземпляров сущности `sales$NewOrder`, и после того, как сущность с заданным ID будет найдена, имя сущности и имя атрибута `newNumber` будут заменены в JSON:
+Контроллер REST API поймет, что поиск должен быть осуществлен среди экземпляров сущности `sales_NewOrder`, и после того, как сущность с заданным ID будет найдена, имя сущности и имя атрибута `newNumber` будут заменены в JSON:
 
 [source, json]
 ----
@@ -56,7 +56,7 @@ include::{sourcesdir}/rest-transform-entity-name-changed-response.json[]
 
 Этот *POST* запрос использует старое имя сущности и имеет JSON в старом формате в теле запроса, однако, запрос будет работать:
 
-`\http://localhost:8080/app/rest/v2/entities/sales$Order`
+`\http://localhost:8080/app/rest/v2/entities/sales_Order`
 
 [source, json]
 ----
@@ -80,7 +80,7 @@ include::{sourcesdir}/rest-transform-attr-removed-config.xml[]
 
 Если выполнить запрос к REST API без атрибута `modelVersion`, то атрибут `discount` будет возвращен.
 
-`\http://localhost:8080/app/rest/v2/entities/sales$Order/c838be0a-96d0-4ef4-a7c0-dff348347f93`
+`\http://localhost:8080/app/rest/v2/entities/sales_Order/c838be0a-96d0-4ef4-a7c0-dff348347f93`
 
 [source, json]
 ----
@@ -89,7 +89,7 @@ include::{sourcesdir}/rest-transform-attr-removed-response-2.json[]
 
 Если указать `modelVersion` в запросе, то атрибут `discount` будет удален:
 
-`\http://localhost:8080/app/rest/v2/entities/sales$Order/c838be0a-96d0-4ef4-a7c0-dff348347f93?modelVersion=1.1`
+`\http://localhost:8080/app/rest/v2/entities/sales_Order/c838be0a-96d0-4ef4-a7c0-dff348347f93?modelVersion=1.1`
 
 [source, json]
 ----
@@ -102,7 +102,7 @@ include::{sourcesdir}/rest-transform-attr-removed-response.json[]
 --
 Вы также можете создать и зарегистрировать свой собственный трансформер JSON. В качестве примера рассмотрим следующую ситуацию.
 
-Сущность `sales$OldOrder` была переименована в `sales$NewOrder`. В сущности имеется поле `orderDate` с типом дата. В старой версии сущности это поле содержало часть со временем, в новой версии сущности часть со временем в поле отсутствует. Клиент REST API, запрашивающий сущность со старой версией модели данных `1.0` ожидает, что дата будет иметь часть со временем. Получается, что JSON трансформер должен изменить значение в JSON.
+Сущность `sales_OldOrder` была переименована в `sales_NewOrder`. В сущности имеется поле `orderDate` с типом дата. В старой версии сущности это поле содержало часть со временем, в новой версии сущности часть со временем в поле отсутствует. Клиент REST API, запрашивающий сущность со старой версией модели данных `1.0` ожидает, что дата будет иметь часть со временем. Получается, что JSON трансформер должен изменить значение в JSON.
 
 Так будет выглядеть конфигурация трансформации для данного случая:
 
@@ -140,7 +140,7 @@ include::{sourcesdir}/features/OrderJsonTransformerToVersion.java[]
 
 Данный трансформер находит элемент `orderDate` в JSON и изменяет значение элемента, добавляя к нему часть со временем.
 
-Когда сущность `sales$Order` будет запрошена с версией модели данных `1.0`, то JSON результат будет содержать сущность, поле `orderDate` которой содержит часть со временем, хотя текущий тип поля сущности - дата без времени.
+Когда сущность `sales_Order` будет запрошена с версией модели данных `1.0`, то JSON результат будет содержать сущность, поле `orderDate` которой содержит часть со временем, хотя текущий тип поля сущности - дата без времени.
 
 Несколько слов о кастомных трансформерах. Они должны реализовывать интерфейс `EntityJsonTransformer`. Вы также можете унаследоваться от класса `AbstractEntityJsonTransformer` и переопределить его метод `doCustomTransformations`. Класс `AbstractEntityJsonTransformer` содержит функциональность стандартных трансформеров.
 --

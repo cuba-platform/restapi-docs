@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <transformations xmlns="http://schemas.haulmont.com/cuba/rest-json-transformations.xsd">
 
-    <transformation modelVersion="1.0" oldEntityName="sales$OldOrder" currentEntityName="sales$NewOrder">
+    <transformation modelVersion="1.0" oldEntityName="sales_OldOrder" currentEntityName="sales_NewOrder">
         <renameAttribute oldName="oldNumber" currentName="number"/>
         <renameAttribute oldName="date" currentName="deliveryDate"/>
         <toVersion>
@@ -9,7 +9,7 @@
         </toVersion>
     </transformation>
 
-    <transformation modelVersion="1.0" currentEntityName="sales$Contractor">
+    <transformation modelVersion="1.0" currentEntityName="sales_Contractor">
         <renameAttribute oldName="summary" currentName="total"/>
         <renameAttribute oldName="familyName" currentName="lastName"/>
         <fromVersion>
@@ -21,7 +21,7 @@
         </toVersion>
     </transformation>
 
-    <transformation modelVersion="1.1" currentEntityName="sales$NewOrder">
+    <transformation modelVersion="1.1" currentEntityName="sales_NewOrder">
         <renameAttribute oldName="date" currentName="deliveryDate"/>
     </transformation>
 

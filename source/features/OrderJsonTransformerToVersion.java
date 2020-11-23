@@ -10,7 +10,7 @@ import com.haulmont.restapi.transform.JsonTransformationDirection;
 public class OrderJsonTransformerToVersion extends AbstractEntityJsonTransformer {
 
     public OrderJsonTransformerToVersion() {
-        super("sales$NewOrder", "sales$OldOrder", "1.0", JsonTransformationDirection.TO_VERSION);
+        super("sales_NewOrder", "sales_OldOrder", "1.0", JsonTransformationDirection.TO_VERSION);
     }
 
     @Override

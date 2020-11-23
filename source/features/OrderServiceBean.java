@@ -18,7 +18,7 @@ public class OrderServiceBean implements OrderService {
         BigDecimal orderPrice = null;
         try (Transaction tx = persistence.createTransaction()) {
             EntityManager em = persistence.getEntityManager();
-            orderPrice = (BigDecimal) em.createQuery("select sum(oi.price) from sales$OrderItem oi where oi.order.number = :orderNumber")
+            orderPrice = (BigDecimal) em.createQuery("select sum(oi.price) from sales_OrderLine oi where oi.order.number = :orderNumber")
                     .setParameter("orderNumber", orderNumber)
                     .getSingleResult();
             tx.commit();

@@ -33,7 +33,7 @@ include::{sourcesdir}/rest_customers_script.js[]
 
 Login and password from the user input are sent to the server by the POST request with the Base64-encoded client credentials in the `Authorization` header as explained in <<rest_api_v2_ex_get_token>> section. If the authentication is successful, the web page receives an access token value from the server, the token is stored in the `oauthToken` variable, the `loginForm` div is hidden and the `loggedInStatus` div is shown.
 
-To show the list of customers, the request is sent to the server <<rest_api_v2_ex_get_entities_list,to get the instances>> of the `sales$Customer` entity, passing the `oauthToken` value in the `Authorization` header.
+To show the list of customers, the request is sent to the server <<rest_api_v2_ex_get_entities_list,to get the instances>> of the `sales_Customer` entity, passing the `oauthToken` value in the `Authorization` header.
 
 In case the request is processed successfully, the `customers` div is shown, and the `customersList` element is filled with items containing customer names and emails.
 

@@ -1,5 +1,5 @@
 {
-  "_entityName": "sales$Order",
+  "_entityName": "sales_Order",
   "id": "5d7ff8e3-7828-ba94-d6ba-155c5c4f2a50",
   "date": "2016-09-01",
   "description": "Back to school",
@@ -8,9 +8,9 @@
   "createdBy": "admin",
   "createTs": "2016-10-13 18:12:21.047",
   "updateTs": "2016-10-13 18:12:21.047",
-  "items": [
+  "lines": [
     {
-      "_entityName": "sales$OrderItem",
+      "_entityName": "sales_OrderLine",
       "id": "3158b8ed-7b7a-568e-aec5-0822c3ebbc24",
       "createdBy": "admin",
       "price": 9.9,
@@ -19,12 +19,12 @@
       "version": 1,
       "updateTs": "2016-10-13 18:12:21.047",
       "order": {
-        "_entityName": "sales$Order",
+        "_entityName": "sales_Order",
         "id": "5d7ff8e3-7828-ba94-d6ba-155c5c4f2a50"
       }
     },
     {
-      "_entityName": "sales$OrderItem",
+      "_entityName": "sales_OrderLine",
       "id": "72774b8b-4fea-6403-7b52-4a6a749215fc",
       "createdBy": "admin",
       "price": 100,
@@ -33,13 +33,13 @@
       "version": 1,
       "updateTs": "2016-10-13 18:12:21.047",
       "order": {
-        "_entityName": "sales$Order",
+        "_entityName": "sales_Order",
         "id": "5d7ff8e3-7828-ba94-d6ba-155c5c4f2a50"
       }
     }
   ],
   "customer": {
-    "_entityName": "sales$Customer",
+    "_entityName": "sales_Customer",
     "id": "4aa9a9d8-01df-c8df-34c8-c385b566ea05",
     "firstName": "Toby",
     "lastName": "Burns",

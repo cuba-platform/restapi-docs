@@ -1,5 +1,5 @@
 {
-  "_entityName": "sales$Order",
+  "_entityName": "sales_Order",
   "id": "5d7ff8e3-7828-ba94-d6ba-155c5c4f2a50",
   "date": "2017-10-01",
   "updatedBy": "admin",
@@ -10,7 +10,7 @@
   "createTs": "2016-10-13 18:12:21.047",
   "updateTs": "2016-10-13 19:13:02.656",
   "customer": {
-    "_entityName": "sales$Customer",
+    "_entityName": "sales_Customer",
     "id": "5d111245-2ed0-abec-3bee-1a196da92e3e",
     "firstName": "Morgan",
     "lastName": "Collins",
