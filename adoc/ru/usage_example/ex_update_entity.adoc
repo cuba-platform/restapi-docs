@@ -5,7 +5,7 @@
 
 Для изменения экземпляра сущности `sales_Order` необходимо выполнить *PUT* запрос по адресу:
 
-`\http://localhost:8080/app/rest/v2/entities/sales_Order/5d7ff8e3-7828-ba94-d6ba-155c5c4f2a50`
+`\http://localhost:8080/app/rest/v2/entities/sales_Order/050af491-16ad-7b4d-8499-4d0bace23bb1`
 
 Последняя часть запроса здесь - это идентификатор изменяемой сущности.
 
@@ -18,11 +18,31 @@ OAuth-токен должен быть передан в заголовке за
 include::{sourcesdir}/rest-update-order-request.json[]
 ----
 
-В теле ответа будет возвращена измененная сущность:
+Тело ответа будет содержать три поля:
 
 [source, json]
 ----
 include::{sourcesdir}/rest-update-order-response.json[]
+----
+
+Если в ответе необходимо отобразить дополнительные поля, тогда в запрос нужно добавить параметр `responseView` и указать одно из представлений. Например, для запроса с представлением `order-edit`
+
+`\http://localhost:8080/app/rest/v2/entities/sales_Order/050af491-16ad-7b4d-8499-4d0bace23bb1?responseView=order-edit`
+
+ответ будет выглядеть следующим образом:
+
+[source, json]
+----
+include::{sourcesdir}/rest-update-order-response-view.json[]
+----
+
+Возможность указать параметр `responseView` задается с помощью свойства <<cuba.rest.responseViewEnabled,cuba.rest.responseViewEnabled>>, значение по умолчанию `true`. При отключенном свойстве в ответе возвращается полный граф измененной сущности. 
+
+Например, если `cuba.rest.responseViewEnabled` установлено в `false`, то ответ будет выглядеть следующим образом:
+
+[source, json]
+----
+include::{sourcesdir}/rest-update-order-response-view-disabled.json[]
 ----
 
 [TIP]

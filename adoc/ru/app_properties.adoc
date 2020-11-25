@@ -149,6 +149,19 @@ cuba.rest.requiresSecurityToken::
 Используется в блоках Web Client и Web Portal.
 --
 
+[[cuba.rest.responseViewEnabled]]
+cuba.rest.responseViewEnabled::
++
+--
+Если установлено значение `true`, то в запросе на создание или обновление сущности можно передавать параметр `responseView` с названием представления. В таком случае загружается созданная/обновленная сущность в соответствии с указанным представлением и возвращается в ответе.
+
+Если установлено значение `false`, то ответ содержит JSON c полным графом созданной/обновленной сущности.
+
+Значение по умолчанию: `true`
+
+Используется в блоках Web Client и Web Portal.
+--
+
 [[cuba.rest.reuseRefreshToken]]
 cuba.rest.reuseRefreshToken::
 +

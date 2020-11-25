@@ -5,7 +5,7 @@
 
 An existing `sales_Order` entity instance can be updated with the *PUT* request on the address:
 
-`\http://localhost:8080/app/rest/v2/entities/sales_Order/5d7ff8e3-7828-ba94-d6ba-155c5c4f2a50`
+`\http://localhost:8080/app/rest/v2/entities/sales_Order/050af491-16ad-7b4d-8499-4d0bace23bb1`
 
 The last part of the query here is the entity identifier.
 
@@ -18,11 +18,31 @@ The request body must contain a JSON object containing only fields we want to up
 include::{sourcesdir}/rest-update-order-request.json[]
 ----
 
-The response body will contain a modified entity:
+The response body will contain three fields:
 
 [source, json]
 ----
 include::{sourcesdir}/rest-update-order-response.json[]
+----
+
+If you need to get other entity fields in the response, then pass the `responseView` parameter to the request URL and specify one of the views. For example, for a query with the `order-edit` view
+
+`\http://localhost:8080/app/rest/v2/entities/sales_Order/050af491-16ad-7b4d-8499-4d0bace23bb1?responseView=order-edit`
+
+the response will be like this:
+
+[source, json]
+----
+include::{sourcesdir}/rest-update-order-response-view.json[]
+----
+
+The ability to pass the `responseView` parameter is specified in the <<cuba.rest.responseViewEnabled,cuba.rest.responseViewEnabled>> application property. By default, it is set to `true`. If this property is disabled, a full object graph of the updated entity is returned.
+
+For example, in case `cuba.rest.responseViewEnabled` is set to `false`, the response will be like this:
+
+[source, json]
+----
+include::{sourcesdir}/rest-update-order-response-view-disabled.json[]
 ----
 
 [TIP]

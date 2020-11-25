@@ -11,7 +11,7 @@ A base URL for getting all instances of the `sales_Order` entity is as follows:
 
 To implement all the conditions described above the following request parameters must be specified:
 
-* *view* - a {manual}/views.html[view], that will be used for loading entities. In our case the `order-edit-view` contains a `customer` reference.
+* *view* - a {manual}/views.html[view], that will be used for loading entities. In our case the `order-edit` contains a `customer` reference.
 * *limit* - a number of instances to be returned.
 * *offset* - a position of the first extracted record.
 * *sort* - an entity attribute name that will be used for sorting.
@@ -22,7 +22,7 @@ An OAuth token must be put in the `Authorization` header with the `Bearer` type:
 
 As a result, we get the following *GET* request URL:
 
-`\http://localhost:8080/app/rest/v2/entities/sales_Order?view=order-edit-view&limit=50&offset=100&sort=date`
+`\http://localhost:8080/app/rest/v2/entities/sales_Order?view=order-edit&limit=50&offset=5&sort=date`
 
 Using https://curl.haxx.se/[cURL], the request will look like:
 

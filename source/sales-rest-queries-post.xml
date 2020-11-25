@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <queries xmlns="http://schemas.haulmont.com/cuba/rest-queries.xsd">
-    <query name="ordersByIds" entity="sales_Order" view="order-edit-view">
+    <query name="ordersByIds" entity="sales_Order" view="order-edit">
         <jpql><![CDATA[select o from sales_Order o where o.id in :ids and o.status = :status]]></jpql>
         <params>
             <param name="ids" type="java.util.UUID[]"/>

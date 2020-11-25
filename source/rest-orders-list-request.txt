@@ -1,2 +1,2 @@
-GET /entities/sales_Order?view=order-edit-view&limit=50&offset=100&sort=date
+GET /entities/sales_Order?view=order-edit&limit=50&offset=100&sort=date
 Authorization: Bearer 29bc6b45-83cd-4050-8c7a-2a8a60adf251

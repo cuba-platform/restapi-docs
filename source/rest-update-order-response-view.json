@@ -1,0 +1,28 @@
+{
+    "_entityName": "sales_Order",
+    "_instanceName": "01/11/2020 Hildred Ellis",
+    "id": "050af491-16ad-7b4d-8499-4d0bace23bb1",
+    "date": "2020-11-01",
+    "numberOfSpecialProducts": 0,
+    "lines": [
+        {
+            "_entityName": "sales_OrderLine",
+            "_instanceName": "Fullriver Sealed Battery 6V",
+            "id": "8b6a921e-b910-c766-7e40-eed95fa49238",
+            "product": {
+                "_entityName": "sales_Product",
+                "_instanceName": "Fullriver Sealed Battery 6V",
+                "id": "e62906e5-1f1a-1bf1-9a57-c798293e86d7",
+                "price": 5.10,
+                "name": "Fullriver Sealed Battery 6V"
+            },
+            "quantity": 20.000
+        }
+    ],
+    "customer": {
+        "_entityName": "sales_Customer",
+        "_instanceName": "Hildred Ellis",
+        "id": "5effc3b8-9445-2b86-cc30-92aabc7c3a6a",
+        "name": "Hildred Ellis"
+    }
+}

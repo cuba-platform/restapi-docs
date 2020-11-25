@@ -1,0 +1,21 @@
+{
+    "_entityName": "sales_Order",
+    "id": "050af491-16ad-7b4d-8499-4d0bace23bb1",
+    "date": "2020-11-01",
+    "updatedBy": "admin",
+    "version": 6,
+    "numberOfSpecialProducts": 0,
+    "createdBy": "admin",
+    "createTs": "2020-11-23 22:33:26.057",
+    "updateTs": "2020-11-25 00:54:49.390",
+    "customer": {
+        "_entityName": "sales_Customer",
+        "id": "5effc3b8-9445-2b86-cc30-92aabc7c3a6a",
+        "createdBy": "admin",
+        "name": "Hildred Ellis",
+        "createTs": "2017-12-19 11:32:47.000",
+        "version": 1,
+        "updateTs": "2017-12-19 11:32:47.000",
+        "email": "ellis@mail.com"
+    }
+}

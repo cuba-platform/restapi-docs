@@ -34,12 +34,31 @@ include::{sourcesdir}/features/Order.java[]
 
 The `lines` collection property is annotated with the {manual}/entity_attr_annotations.html#composition_annotation[@Composition]. REST API methods for entity creation and update will create a new entity instances for all members of such collections. In our case, two instances of `OrderLine` entity will be created with the `Order` entity.
 
-The `customer` reference doesn't have a `@Composition` annotation, that's why the REST API will try to find a client with the given id and set it to the `customer` field. If the client is not found then an order won't be created and the method will return an error.
+The `customer` reference doesn't have a `@Composition` annotation, that's why the REST API will try to find a client with the given id and set it to the `customer` field. If the client is not found then an order won't be created and the method will return an error. Similarly, ids of the products will be set to the `product` field of the created `OrderLine` instances.
 
-In case of successful method execution a full object graph of the created entity is returned:
+In case of successful method execution, the following JSON containing only three fields is returned:
 
 [source, json]
 ----
 include::{sourcesdir}/rest-create-order-response.json[]
 ----
 
+If you need to get other entity fields in the response, then pass the `responseView` parameter to the request URL and specify one of the views. For example, for a query with the `order-edit` view
+
+`\http://localhost:8080/app/rest/v2/entities/sales_Order?responseView=order-edit`
+
+the response will be like this:
+
+[source, json]
+----
+include::{sourcesdir}/rest-create-order-response-view.json[]
+----
+
+The ability to pass the `responseView` parameter is specified in the <<cuba.rest.responseViewEnabled,cuba.rest.responseViewEnabled>> application property. By default, it is set to `true`. If this property is disabled, a full object graph of the created entity is returned. 
+
+For example, in case `cuba.rest.responseViewEnabled` is set to `false`, the response will be like this:
+
+[source, json]
+----
+include::{sourcesdir}/rest-create-order-response-view-disabled.json[]
+----

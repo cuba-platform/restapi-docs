@@ -149,6 +149,19 @@ Default value: `false`
 Used in the Web Client and Web Portal blocks.
 --
 
+[[cuba.rest.responseViewEnabled]]
+cuba.rest.responseViewEnabled::
++
+--
+If set to `true`, `responseView` parameter with the view name can be passed in the create and update requests. In this case the created/updated entity must be reloaded with the specified view and returned in the response JSON.
+
+If set to `false`, the response contains JSON with a full graph of the created/updated entity.
+
+Default value: `true`
+
+Used in the Web Client and Web Portal blocks.
+--
+
 [[cuba.rest.reuseRefreshToken]]
 cuba.rest.reuseRefreshToken::
 +

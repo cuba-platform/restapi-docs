@@ -11,7 +11,7 @@
 
 Для выполнения описанных выше условий необходимо задать параметры запроса:
 
-* *view* - {manual}/views.html[представление], с которым должны быть загружены сущности. В нашем примере представление `order-edit-view` содержит ссылку на `customer`.
+* *view* - {manual}/views.html[представление], с которым должны быть загружены сущности. В нашем примере представление `order-edit` содержит ссылку на `customer`.
 * *limit* - количество возвращаемых экземпляров.
 * *offset* - позиция первого извлеченного элемента.
 * *sort* - имя атрибута сущности, по которому будет произведена сортировка.
@@ -22,7 +22,7 @@ OAuth-токен должен быть передан в заголовке за
 
 В итоге получаем следующий *GET* http-запрос:
 
-`\http://localhost:8080/app/rest/v2/entities/sales_Order?view=order-edit-view&limit=50&offset=100&sort=date`
+`\http://localhost:8080/app/rest/v2/entities/sales_Order?view=order-edit&limit=50&offset=100&sort=date`
 
 В https://curl.haxx.se/[cURL] запрос может выглядеть так:
 

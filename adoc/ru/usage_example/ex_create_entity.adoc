@@ -35,11 +35,31 @@ include::{sourcesdir}/features/Order.java[]
 В сущности `Order` коллекция `lines` аннотирована {manual}/entity_attr_annotations.html#composition_annotation[@Composition]. Методы создания и обновления сущности REST API создают новые экземпляры для всех элементов таких коллекций. Т.е. вместе с заказом (`Order`) будет создано две позиции заказа (`OrderLine`).
 
 Ссылка `customer` не имеет аннотации `@Composition`, поэтому метод REST API попытается найти клиента с переданным идентификатором и проставить его в поле `customer`. Если клиент не будет найден, заказ не будет создан и метод вернет ошибку.
+Аналогично в поле `product` созданных позиций заказа будут проставлены указанные идентификаторы товаров.
 
-В случае успеха возвращается полный граф созданной сущности:
+В случае успеха возвращается JSON, содержащий только три поля:
 
 [source, json]
 ----
 include::{sourcesdir}/rest-create-order-response.json[]
 ----
 
+Если в ответе необходимо отобразить дополнительные поля, тогда в запрос нужно добавить параметр `responseView` и указать одно из представлений. Например, для запроса с представлением `order-edit`
+
+`\http://localhost:8080/app/rest/v2/entities/sales_Order?responseView=order-edit`
+
+ответ будет выглядеть следующим образом:
+
+[source, json]
+----
+include::{sourcesdir}/rest-create-order-response-view.json[]
+----
+
+Возможность указать параметр `responseView` задается с помощью свойства <<cuba.rest.responseViewEnabled,cuba.rest.responseViewEnabled>>, значение по умолчанию `true`. При отключенном свойстве в ответе возвращается полный граф созданной сущности. 
+
+Например, если `cuba.rest.responseViewEnabled` установлено в `false`, то ответ будет выглядеть следующим образом:
+
+[source, json]
+----
+include::{sourcesdir}/rest-create-order-response-view-disabled.json[]
+----

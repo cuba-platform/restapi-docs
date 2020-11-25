@@ -1,0 +1,41 @@
+{
+    "_entityName": "sales_Order",
+    "_instanceName": "12/01/2020 Sidney Chandler",
+    "id": "b8e702a8-4ca7-47b6-5c76-3a35e33fe609",
+    "date": "2020-01-12",
+    "numberOfSpecialProducts": 0,
+    "lines": [
+        {
+            "_entityName": "sales_OrderLine",
+            "_instanceName": "Astronergy Solar Panel",
+            "id": "c3c7bbe4-75c5-0223-df56-0f6c018dd1e2",
+            "product": {
+                "_entityName": "sales_Product",
+                "_instanceName": "Astronergy Solar Panel",
+                "id": "345e429f-6d74-7d1a-d1ab-9f6c67c10fe5",
+                "price": 23.00,
+                "name": "Astronergy Solar Panel"
+            },
+            "quantity": 5.000
+        },
+        {
+            "_entityName": "sales_OrderLine",
+            "_instanceName": "Fullriver Sealed Battery 6V",
+            "id": "881c6ea7-e9f4-cb2f-b0e3-1aac85aed81f",
+            "product": {
+                "_entityName": "sales_Product",
+                "_instanceName": "Fullriver Sealed Battery 6V",
+                "id": "e62906e5-1f1a-1bf1-9a57-c798293e86d7",
+                "price": 5.10,
+                "name": "Fullriver Sealed Battery 6V"
+            },
+            "quantity": 20.000
+        }
+    ],
+    "customer": {
+        "_entityName": "sales_Customer",
+        "_instanceName": "Sidney Chandler",
+        "id": "a09983f6-540c-5d49-a4cf-d2343b6ee44b",
+        "name": "Sidney Chandler"
+    }
+}
