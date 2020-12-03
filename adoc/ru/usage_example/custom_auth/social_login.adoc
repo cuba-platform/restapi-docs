@@ -3,13 +3,13 @@
 [[rest_api_v2_social_login]]
 ==== Social Login в REST API
 
-Механизм авторизации через социальные сети, или social login, также можно использовать в REST API. Исходный код приложения, описанного в этом примере, доступен на https://github.com/cuba-platform/sample-social-login/[GitHub], а сам пример описан в разделе {manual}/social_login.html[social login]. Ниже приведены ключевые моменты этого примера, позволяющие получить OAuth-токен через аккаунт Facebook.
+Механизм авторизации через социальные сети, или social login, также можно использовать в REST API. Исходный код приложения, описанного в этом примере, доступен на https://github.com/cuba-platform/sample-social-login-cuba7[GitHub], а сам пример описан в разделе {manual}/social_login.html[social login]. Ниже приведены ключевые моменты этого примера, позволяющие получить OAuth-токен через аккаунт Facebook.
 
 . Создайте пакет `restapi` в корневом каталоге модуля *web* и поместите в него собственный контроллер Spring MVC. Контроллер должен содержать два основных метода: `get()`, возвращающий `ResponseEntity`, и `login()`, в котором мы будем получать OAuth-токен.
 +
 --
 [source,java]
-.https://github.com/cuba-platform/sample-social-login/blob/master/modules/web/src/com/company/demo/restapi/FacebookAuthenticationController.java[FacebookAuthenticationController.java]
+.https://github.com/cuba-platform/sample-social-login-cuba7/blob/master/modules/web/src/com/company/demo/restapi/FacebookAuthenticationController.java[FacebookAuthenticationController.java]
 ----
 include::{sourcesdir}/social_login_rest_1.java[]
 ----
@@ -17,7 +17,7 @@ include::{sourcesdir}/social_login_rest_1.java[]
 Здесь мы проверяем переданный код Facebook, получаем код доступа и издаём токен с помощью `OAuthTokenIssuer`:
 
 [source,java]
-.https://github.com/cuba-platform/sample-social-login/blob/master/modules/web/src/com/company/demo/restapi/FacebookAuthenticationController.java[FacebookAuthenticationController.java]
+.https://github.com/cuba-platform/sample-social-login-cuba7/blob/master/modules/web/src/com/company/demo/restapi/FacebookAuthenticationController.java[FacebookAuthenticationController.java]
 ----
 include::{sourcesdir}/social_login_rest_2.java[]
 ----
@@ -30,11 +30,27 @@ include::{sourcesdir}/social_login_rest_2.java[]
 include::{sourcesdir}/social_login_rest_5.xml[]
 ----
 
+. В корневом каталоге модуля *web* (`com.company.demo`) создайте новый файл конфигурации Spring `rest-dispatcher-spring.xml` со следующим содержанием:
++
+[source, xml]
+----
+include::{sourcesdir}/rest-dispatcher-spring-sl.xml[]
+----
+
+. Ссылку на этот файл укажите в свойстве приложения `cuba.restSpringContextConfig` в файле `modules/web/src/web-app.properties`:
++
+[source, properties]
+----
+include::{sourcesdir}/rest-dispatcher-spring-sl.properties[]
+----
+
+. Загрузите https://jquery.com/download[jQuery] и скопируйте в каталог `modules/web/web/VAADIN` вашего проекта.
+
 . Создайте файл `facebook-login-demo.html` в каталоге проекта `modules/web/web/VAADIN`. Он будет содержать JavaScript-код, выполняющийся на HTML-странице:
 +
 --
 [source, html]
-.https://github.com/cuba-platform/sample-social-login/blob/master/modules/web/web/VAADIN/facebook-login-demo.html[facebook-login-demo.html]
+.https://github.com/cuba-platform/sample-social-login-cuba7/blob/master/modules/web/web/VAADIN/facebook-login-demo.html[facebook-login-demo.html]
 ----
 include::{sourcesdir}/social_login_rest_3.html[]
 ----
@@ -42,7 +58,7 @@ include::{sourcesdir}/social_login_rest_3.html[]
 В этом скрипте мы попробуем залогиниться через Facebook. Сначала удаляем лишний код из URL, затем передаём код в REST API для получения OAuth-токена, и в случае успешной аутентификации мы сможем загружать и сохранять данные как обычно:
 
 [source, js]
-.https://github.com/cuba-platform/sample-social-login/blob/master/modules/web/web/VAADIN/facebook-login-demo.html[facebook-login-demo.html]
+.https://github.com/cuba-platform/sample-social-login-cuba7/blob/master/modules/web/web/VAADIN/facebook-login-demo.html[facebook-login-demo.html]
 ----
 include::{sourcesdir}/social_login_rest_4.js[]
 ----

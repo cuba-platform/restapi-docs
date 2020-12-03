@@ -3,13 +3,13 @@
 [[rest_api_v2_social_login]]
 ==== Social Login in REST API
 
-The mechanism of social login can be used in REST API too. The complete sample application is available on https://github.com/cuba-platform/sample-social-login/[GitHub] and described in the {manual}/social_login.html[social login] section, below are the key points of getting an access token with a Facebook account.
+The mechanism of social login can be used in REST API too. The complete sample application is available on https://github.com/cuba-platform/sample-social-login-cuba7[GitHub] and described in the {manual}/social_login.html[social login] section, below are the key points of getting an access token with a Facebook account.
 
 . Create the `restapi` package under the root package of *web* module and implement the custom Spring MVC controller in it. This controller should contain two main methods: `get()` to get a `ResponseEntity` instance and `login()` to obtain an OAuth token.
 +
 --
 [source,java]
-.https://github.com/cuba-platform/sample-social-login/blob/master/modules/web/src/com/company/demo/restapi/FacebookAuthenticationController.java[FacebookAuthenticationController.java]
+.https://github.com/cuba-platform/sample-social-login-cuba7/blob/master/modules/web/src/com/company/demo/restapi/FacebookAuthenticationController.java[FacebookAuthenticationController.java]
 ----
 include::{sourcesdir}/social_login_rest_1.java[]
 ----
@@ -17,7 +17,7 @@ include::{sourcesdir}/social_login_rest_1.java[]
 Here we check the Facebook code, obtain an access code and issue the access token using `OAuthTokenIssuer`:
 
 [source,java]
-.https://github.com/cuba-platform/sample-social-login/blob/master/modules/web/src/com/company/demo/restapi/FacebookAuthenticationController.java[FacebookAuthenticationController.java]
+.https://github.com/cuba-platform/sample-social-login-cuba7/blob/master/modules/web/src/com/company/demo/restapi/FacebookAuthenticationController.java[FacebookAuthenticationController.java]
 ----
 include::{sourcesdir}/social_login_rest_2.java[]
 ----
@@ -30,11 +30,25 @@ include::{sourcesdir}/social_login_rest_2.java[]
 include::{sourcesdir}/social_login_rest_5.xml[]
 ----
 
+. Create a new Spring configuration file with the name `rest-dispatcher-spring.xml` under the root package (`com.company.demo`) of *web* module. The content of the file must be as follows:
++
+[source, xml]
+----
+include::{sourcesdir}/rest-dispatcher-spring-sl.xml[]
+----
+
+. Include the file into the `cuba.restSpringContextConfig` application property in the `modules/web/src/web-app.properties` file:
++
+[source, properties]
+----
+include::{sourcesdir}/rest-dispatcher-spring-sl.properties[]
+----
+
 . Create the `facebook-login-demo.html` file in the `modules/web/web/VAADIN` folder of your project. It will contain the JavaScript code running on HTML page:
 +
 --
 [source, html]
-.https://github.com/cuba-platform/sample-social-login/blob/master/modules/web/web/VAADIN/facebook-login-demo.html[facebook-login-demo.html]
+.https://github.com/cuba-platform/sample-social-login-cuba7/blob/master/modules/web/web/VAADIN/facebook-login-demo.html[facebook-login-demo.html]
 ----
 include::{sourcesdir}/social_login_rest_3.html[]
 ----
@@ -42,7 +56,7 @@ include::{sourcesdir}/social_login_rest_3.html[]
 The following script will try to login with Facebook. Firstly, it will remove code parameters from URL, then it will pass the code to REST API to get an OAuth access token, and in case of successful authentication we will be able to load and save data as usual.
 
 [source, js]
-.https://github.com/cuba-platform/sample-social-login/blob/master/modules/web/web/VAADIN/facebook-login-demo.html[facebook-login-demo.html]
+.https://github.com/cuba-platform/sample-social-login-cuba7/blob/master/modules/web/web/VAADIN/facebook-login-demo.html[facebook-login-demo.html]
 ----
 include::{sourcesdir}/social_login_rest_4.js[]
 ----
