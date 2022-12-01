@@ -2,6 +2,36 @@
 == Примечания к выпускам
 
 [discrete]
+[[release_7_2_5]]
+=== Release 7.2.5
+
+Resolved issues:
+
+* CORS request fails in case of allowedOrigins set to all https://github.com/cuba-platform/restapi/issues/145[#145]
+*  NullPointerException if /search request finds nothing https://github.com/cuba-platform/restapi/issues/144[#144]
+
+[discrete]
+[[release_7_2_4]]
+=== Release 7.2.4
+
+Resolved issues:
+
+* Character datatype isn't supported on filter operation https://github.com/cuba-platform/restapi/issues/134[#134]
+* Support service method result with generics https://github.com/cuba-platform/restapi/issues/138[#138]
+* Clear refreshTokenValueToUserLoginStore map while removing refresh token from TokenStore https://github.com/cuba-platform/restapi/issues/139[#139]
+* Fix security alerts https://github.com/cuba-platform/restapi/issues/140[#140]
+
+[discrete]
+[[release_7_2_3]]
+=== Release 7.2.3
+
+Resolved issues:
+
+* Fix sorting by association attribute if the have null value https://github.com/cuba-platform/restapi/issues/121[#121]
+* REST API does not support entities with composite primary key https://github.com/cuba-platform/restapi/issues/49[#49]
+* Support for Java 8 Date/Time API in parameters https://github.com/cuba-platform/restapi/issues/125[#125]
+
+[discrete]
 [[release_7_2_2]]
 === Release 7.2.2
 
