@@ -2,6 +2,14 @@
 == Release Notes
 
 [discrete]
+[[release_7_2_6]]
+=== Release 7.2.6
+
+Resolved issues:
+
+* Add-on should depend on Spring Security 5.5 https://github.com/cuba-platform/restapi/issues/146[#146]
+
+[discrete]
 [[release_7_2_5]]
 === Release 7.2.5
 
