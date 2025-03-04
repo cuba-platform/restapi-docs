@@ -2,6 +2,14 @@
 == Release Notes
 
 [discrete]
+[[release_7_2_7]]
+=== Release 7.2.7
+
+Resolved issues:
+
+* Update dependencies https://github.com/cuba-platform/cuba/issues/3307[#3307]
+
+[discrete]
 [[release_7_2_6]]
 === Release 7.2.6
 
