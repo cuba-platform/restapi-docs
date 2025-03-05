@@ -1,11 +1,15 @@
 buildscript {
     repositories {
-        jcenter()
+        maven { url 'https://repo.cuba-platform.com/content/groups/work' }
     }
 
     dependencies {
         classpath 'org.asciidoctor:asciidoctor-gradle-plugin:1.5.9.2'
     }
+}
+
+repositories {
+    maven { url 'https://repo.cuba-platform.com/content/groups/work' }
 }
 
 def docVersion = '7.2'
